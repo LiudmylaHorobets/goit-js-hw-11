@@ -89,6 +89,14 @@ async function fetchAndDisplayImages(q, page) {
 
     if (images.length > 0) {
       createImageMarkup(images, gallery, lightbox);
+
+      // Плавне прокручування після запиту
+      //  const { height: cardHeight } =
+      //    gallery.firstElementChild.getBoundingClientRect();
+      //  window.scrollBy({
+      //    top: cardHeight * images.length,
+      //    behavior: 'smooth',
+      //  });
     } else {
       loadMoreBtn.style.display = 'none';
       //   gallery.innerHTML =
@@ -101,11 +109,14 @@ async function fetchAndDisplayImages(q, page) {
     if (currentPage < Math.ceil(response.totalHits / 40)) {
       loadMoreBtn.style.display = 'block';
     } else {
-      loadMoreBtn.style.display = 'none';
-      //   gallery.insertAdjacentHTML(
-      //     'beforeend',
-      //     "<p>We're sorry, but you've reached the end of search results.</p>"
-      //   );
+        loadMoreBtn.style.display = 'none';
+        // повідомлення про кінець images
+       if (images.length === 0 && response.totalHits > 0) {
+         gallery.insertAdjacentHTML(
+           'beforeend',
+           "<p>We're sorry, but you've reached the end of search results.</p>"
+         );
+       }
     }
   } catch (error) {
     console.error('Error fetching images:', error);
