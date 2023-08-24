@@ -8,19 +8,22 @@
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
-    <form class="search-form" id="search-form">
-      <input
-        type="text"
-        name="searchQuery"
-        autocomplete="off"
-        placeholder="Search images..."
-      />
-      <button class="submit-btn" type="submit">Search</button>
-    </form>
-    <div class="gallery">
-      <!-- Картки зображень -->
-    </div>
-    <button class="load-more" type="button">Load more</button>
+    <div class="container-form">
+      <form class="search-form" id="search-form">
+        <input
+          class="search-form-input"
+          type="text"
+          name="searchQuery"
+          autocomplete="off"
+          placeholder="Search images..."
+        />
+        <button class="submit-btn" type="submit">Search</button>
+      </form>
+       </div>
+      <div class="gallery image-gallery" id="gallery">
+        <!-- Image cards will be rendered here -->
+      </div>
+      <button type="button" class="load-more" id="load-more">Load more</button>
 
     <script src="index.js" type="module"></script>
   </body>
