@@ -4,6 +4,7 @@ img {
   object-fit: cover;
 }
 body {
+  overflow: hidden;
   margin: 0 auto;
   /* padding: 20px; */
 }
